@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+}
+
+body {
+  background-color: rgba(234, 237, 237);
+
+  -webkit-font-smoothing: antialiased;
+  -noz-osx-font-smoothing: grayscale;
+}
