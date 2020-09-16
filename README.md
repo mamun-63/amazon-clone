@@ -8,7 +8,7 @@
 - Put Card Number : 4242.... just continuously typing to fill
 - *Deployment bugs* > while buying any product, it can not proceed. Something wrong with Firebase Cloud Platform or in my code. But it was working when I emulated to test in Firebase.
 
-<img src="amazone-clone.png" />
+<img src="amazon-clone.png" />
 
 ```javascript
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
