@@ -3,7 +3,9 @@ export const initialState = {
   user: null,
 }
 
-// selector -reduce, they calculate basket total here, I have done it directly in subtotal.js 
+// selector
+export const getBasketTotal = (basket) => 
+  basket.reduce((amount, item) => item.price + amount, 0)
 
 // now gonna create reducer
 
@@ -13,23 +15,34 @@ const reducer = (state, action) => {
   switch (action.type){
     // listen action
     case "ADD_TO_BASKET":
+      console.log("action item > ", action.item.id)
       return {
         ...state,
         basket: [...state.basket, action.item]
       }
 
 
+    case "EMPTY_BASKET":
+      return {
+        ...state,
+        basket: []
+      }
+
+
     case "REMOVE_FROM_BASKET":
+      console.log("removing id is ",action.id)
+
       const index = state.basket.findIndex(
         (basketItem) => basketItem.id === action.id
-      )
-      let newBasket = [...state.basket]
+      );
+      let newBasket = [...state.basket];
 
       if (index >= 0) {
-        newBasket.splice(index, 1)
+        newBasket.splice(index, 1);
+
       } else {
         console.warn(
-          `cant remove product (id: ${action.id}) as its not in the basket!`
+          `Cant remove product (id: ${action.id}) as its not in basket!`
         )
       }
 
@@ -37,7 +50,7 @@ const reducer = (state, action) => {
         ...state,
         basket: newBasket
       }
-      
+
 
     case "SET_USER":
       return {
